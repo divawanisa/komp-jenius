@@ -13,3 +13,4 @@ datetime
 python-crfsuite 
 nltk
 regex
+seaborn
