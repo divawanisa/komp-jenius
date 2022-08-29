@@ -1,0 +1,14 @@
+flask
+gunicorn
+numpy
+pandas
+matplotlib
+dash
+plotly
+itertools
+math
+dash_bootstrap_components
+datetime
+pycrfsuite
+nltk
+re
