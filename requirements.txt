@@ -5,10 +5,11 @@ pandas
 matplotlib
 dash
 plotly
-itertools
-math
+more-itertools
+mpmath
 dash_bootstrap_components
+scikit-learn
 datetime
-pycrfsuite
+python-crfsuite 
 nltk
-re
+regex
