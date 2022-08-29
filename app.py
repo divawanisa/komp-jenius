@@ -207,6 +207,7 @@ fig2 = px.scatter(globals()[f'hasil_pca_{j}'], x="PC 1", y="PC 2", text=globals(
 plotting(fig2)
 
 app = Dash(__name__)
+server = app.server
 app.config.suppress_callback_exceptions = True
 
 tab1 =  html.Div([html.Div('Pilih Dimensi', style = {'margin-bottom':'5px', 'margin-left':'25px','margin-top':'10px'}),
