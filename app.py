@@ -14,13 +14,13 @@ import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
 ###########
-jago_pros = pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/jago.csv', index_col = 'Unnamed: 0')
-jenius_pros = pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/jenius.csv', index_col = 'Unnamed: 0')
-neo_pros = pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/neo.csv', index_col = 'Unnamed: 0')
-tmrw_pros =pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/tmrw.csv', index_col = 'Unnamed: 0')
-sea_pros = pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/sea.csv', index_col = 'Unnamed: 0')
-blu_pros = pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/blu.csv', index_col = 'Unnamed: 0')
-digi_pros=pd.read_csv('D:/TUGAS AKHIR SMGT!/variabel/digi.csv', index_col = 'Unnamed: 0')
+jago_pros = pd.read_csv('data/jago.csv', index_col = 'Unnamed: 0')
+jenius_pros = pd.read_csv('data/jenius.csv', index_col = 'Unnamed: 0')
+neo_pros = pd.read_csv('data/neo.csv', index_col = 'Unnamed: 0')
+tmrw_pros =pd.read_csv('data/tmrw.csv', index_col = 'Unnamed: 0')
+sea_pros = pd.read_csv('data/sea.csv', index_col = 'Unnamed: 0')
+blu_pros = pd.read_csv('data/blu.csv', index_col = 'Unnamed: 0')
+digi_pros=pd.read_csv('data/digi.csv', index_col = 'Unnamed: 0')
         
 variabl = ['jago', 'jenius', 'neo', 'tmrw', 'sea', 'blu', 'digi']
 pros = []
@@ -146,7 +146,7 @@ def atribut_dimensi(huruf,thedata, dimensi,namvar):
 
 def competition(data, brand, dimensi):
     global perkompetisian, slat
-    comp = pd.read_csv('C:/Users/divaa/1 Notebook Projects/1 TA YEYEYEYYE/untuk kompetitor 2.csv', delimiter = ';')
+    comp = pd.read_csv('data/untuk kompetitor 2.csv', delimiter = ';')
     comp = comp[~comp['var_1'].isin(['line','motion'])]
     comp = comp[~comp['var_2'].isin(['line','motion'])].reset_index(drop = True)
     n= brand           # Number of brands
