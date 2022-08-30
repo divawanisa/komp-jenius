@@ -230,7 +230,7 @@ tab1 =  html.Div([html.Div('Pilih Dimensi', style = {'margin-bottom':'5px', 'mar
             style = {'float':'left', 'height':'50%', 'line-height':'50px','vertical-align':'middle', 'width':'20%', 'display':'inline-block', 'margin-top':'150px'}),
         
     html.Div([dcc.Graph(id = 'main-page-graph',figure = fig, 
-    clickData = {'points':[{'text':'Jago'}]})],style = {'width':'50%', 'float':'left', 'line-height':'50px','vertical-align':'middle', 'margin':'0px auto', 'margin-left':'50px', 'display':'inline-block'}), 
+    clickData = {'points':[{'text':'Jago'}]})],style = {'width':'50%', 'float':'left', 'line-height':'50px','vertical-align':'middle', 'margin':'0px auto', 'margin-left':'50px', 'display':'inline-block', 'margin-top':'25px'}), 
     
     html.Div([ # tabel kanan
             dash_table.DataTable(data=group_j_pc1_pos.to_dict('records'),id = 'tabel1-kanan', 
@@ -265,7 +265,7 @@ tab2 =  html.Div([
         style = {'height':'50%', 'width':'20%', 'display':'inline-block', 'float':'left', 'margin-top':'150px'}),
 
     html.Div([dcc.Graph(id ='second-page-graph',figure = fig2, 
-    clickData = {'points':[{'text':'Sea'}]})],style = {'width':'50%', 'float':'left', 'display':'inline-block','margin-left':'100px'}), 
+    clickData = {'points':[{'text':'Sea'}]})],style = {'width':'50%', 'float':'left', 'display':'inline-block','margin-left':'100px', 'margin-top':'25px'}), 
     
     html.Div([ #tabel kanan
             dash_table.DataTable(data=group_j_pc1_pos.to_dict('records'),id = 'tabel2-kanan', 
