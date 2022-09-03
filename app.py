@@ -200,7 +200,7 @@ for i in range(1,len(kompetisi.columns)+1):
     modelling_pca(kompetisi[i],'z_score')
     hasil_pca(2)
     define_var_pca(str(i),0.8)
-    atribut_dimensi('group_{}'.format(str(i)),globals()[f'group_{i}'],2,'1')
+    atribut_dimensi('group_{}'.format(str(i)),globals()[f'group_{i}'],2,str(i))
 
 j = kompetisi.loc['merek_1'][kompetisi.loc['merek_1'] == 'Jenius'.lower()].index[0]
 fig2 = px.scatter(globals()[f'hasil_pca_{j}'], x="PC 1", y="PC 2", text=globals()[f'hasil_pca_{j}'].index.str.title(), title = 'PETA',hover_name = globals()[f'hasil_pca_{j}'].index.str.title())  
