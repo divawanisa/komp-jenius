@@ -210,44 +210,6 @@ app = Dash(__name__)
 server = app.server
 app.config.suppress_callback_exceptions = True
 
-tab1 =  html.Div([html.Div('Pilih Dimensi', style = {'margin-bottom':'5px', 'margin-left':'25px','margin-top':'10px'}),
-    html.Div([dcc.Dropdown(['PC 1','PC 2', 'PC 3'],"PC 1", clearable = False, id = 'dropdown-1')], style = {'width': '30%', 'height':'70%', 'display':'inline-block','float':'left','margin-left':'25px'}),
-    html.Div([dcc.Dropdown(['PC 1','PC 2', 'PC 3'],"PC 2", clearable = False, id = 'dropdown-2')],style = {'width':'30%','height':'70%','float':'right','display':'inline-block', 'margin-right':'225px'}),
-    ], style = {'width': '60%', 'margin-top':'0px','padding':'0px 0px 0px 0px'}), html.Div([
-    
-    html.Div([ #tabel atas
-            dash_table.DataTable(data=group_j_pc2_pos.to_dict('records'),id = 'tabel1-atas', 
-            fixed_rows={'headers': True}, style_table={'height': 150}, 
-            style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
-            style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
-            style = {'height':'50%','margin-top':'50px','margin':'0px auto', 'width':'20%'}),
-        
-    html.Div([ # tabel kiri
-            dash_table.DataTable(data=group_j_pc1_neg.to_dict('records'),id = 'tabel1-kiri', 
-            fixed_rows={'headers': True}, style_table={'height': 150}, 
-            style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
-            style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
-            style = {'float':'left', 'height':'50%', 'line-height':'50px','vertical-align':'middle', 'width':'20%', 'display':'inline-block', 'margin-top':'150px'}),
-        
-    html.Div([dcc.Graph(id = 'main-page-graph',figure = fig, 
-    clickData = {'points':[{'text':'Jago'}]})],style = {'width':'50%', 'float':'left', 'line-height':'50px','vertical-align':'middle', 'margin':'0px auto', 'margin-left':'50px', 'display':'inline-block', 'margin-top':'25px'}), 
-    
-    html.Div([ # tabel kanan
-            dash_table.DataTable(data=group_j_pc1_pos.to_dict('records'),id = 'tabel1-kanan', 
-            fixed_rows={'headers': True}, style_table={'height': 150}, 
-            style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
-            style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
-            style = {'float':'right', 'height':'50%', 'line-height':'50px','vertical-align':'middle', 'width':'20%', 'display':'inline-block', 'margin-top':'150px'}),
-    
-    html.Div([ #tabel bawah
-            dash_table.DataTable(data=group_j_pc1_neg.to_dict('records'),id = 'tabel1-bawah', 
-            fixed_rows={'headers': True}, style_table={'height': 150}, 
-            style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
-            style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
-            style = {'height':'50%', 'margin':'0px auto', 'width':'20%'}), #tabel bawah
-
-        ], style = {'margin-top': '60px'})
-
 #TABBBB 2
 tab2 =  html.Div([  
     html.Div([ #tabel atas
@@ -287,57 +249,9 @@ tab2 =  html.Div([
 app.layout = html.Div(style = {'background-color':'white'},children = [
 html.Div([    
     html.H3(['DASHBOARD PETA PERSEPTUAL'], style ={'font-family':'Helvetica', 'text-align':'left','height':'50%', 'text-align':'center'}), # Main page
-]),
-html.Div([dcc.Tabs(id="tabs-yeay", value='tab-1-value',children = [
-    dcc.Tab(label = "Peta Kepentingan", value='tab-1-value', style = {'line-height': '7vh' ,'font-family':'Helvetica', 'display':'inline-block','padding':'1px'}, selected_style={'font-weight':'bold', 'font-family':'Helvetica','padding':'6px'}), 
-    dcc.Tab(label = 'Peta Kompetitor', value='tab-2-value', style = {'line-height': '7vh', 'font-family':'Helvetica','display':'inline-block','padding':'1px'}, selected_style={'font-weight':'bold', 'font-family':'Helvetica','padding':'6px'})
-], style = {'height':'7vh', 'width':'100%'})],style= {'display':'inline-block', 'width':'100%'}),
-
+]), style= {'display':'inline-block', 'width':'100%'}),
 html.Div(id ='tab-pertama', children = tab1, style= {'padding':'0 0 0 0'})
 ])
-
-
-#CALLBACKKK
-# 1. tab
-@app.callback(Output('tab-pertama', 'children'), Input('tabs-yeay','value'))
-def update_tab(tab):
-    if tab == 'tab-1-value':
-        return tab1
-    elif tab == 'tab-2-value' : return tab2
-
-# update grafik based on dropdown value
-@app.callback(Output('main-page-graph','figure'), Output('tabel1-atas','data'), Output('tabel1-kiri','data'), Output('tabel1-kanan','data'), Output('tabel1-bawah','data'),\
-Input('dropdown-1','value'),Input('dropdown-2','value'))
-def update_graph_main(dimensi1, dimensi2):
-    fig = px.scatter(hasil_pca_j, x=dimensi1, y=dimensi2, text=hasil_pca_j.index.str.title(), title = 'PETA {} VS {}'.format(dimensi1,dimensi2),hover_name = hasil_pca_j.index.str.title())
-    plotting(fig)
-
-    if dimensi1 == 'PC 1':
-        datakiri1= group_j_pc1_neg.to_dict('records')
-        datakanan1= group_j_pc1_pos.to_dict('records')
-
-    elif dimensi1 == 'PC 2':
-        datakiri1= group_j_pc2_neg.to_dict('records')
-        datakanan1= group_j_pc2_pos.to_dict('records')
-
-    else:
-        datakiri1= group_j_pc3_neg.to_dict('records')
-        datakanan1= group_j_pc3_pos.to_dict('records')
-
-    if dimensi2 == 'PC 1':
-        dataatas1= group_j_pc1_pos.to_dict('records')
-        databawah1= group_j_pc1_pos.to_dict('records')
-
-    elif dimensi2 == 'PC 2':
-        dataatas1= group_j_pc2_pos.to_dict('records')
-        databawah1= group_j_pc2_neg.to_dict('records')
-
-    else:
-        dataatas1= group_j_pc3_pos.to_dict('records')
-        databawah1= group_j_pc3_neg.to_dict('records')
-
-    return fig, dataatas1, datakiri1, datakanan1, databawah1
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
