@@ -258,7 +258,7 @@ tab2 =  html.Div([
             style = {'height':'50%', 'width': '20%', 'margin':'0px auto'}),
 
     html.Div([ #tabel kiri
-        dash_table.DataTable(data=group_4_pc2_neg.to_dict('records'),id = 'tabel2-kiri', 
+        dash_table.DataTable(data=group_4_pc1_neg.to_dict('records'),id = 'tabel2-kiri', 
         fixed_rows={'headers': True}, style_table={'height': 150}, 
         style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
         style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
