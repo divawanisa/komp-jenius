@@ -251,14 +251,14 @@ tab1 =  html.Div([html.Div('Pilih Dimensi', style = {'margin-bottom':'5px', 'mar
 #TABBBB 2
 tab2 =  html.Div([  
     html.Div([ #tabel atas
-            dash_table.DataTable(data=group_j_pc2_pos.to_dict('records'),id = 'tabel2-atas', 
+            dash_table.DataTable(data=group_4_pc2_pos.to_dict('records'),id = 'tabel2-atas', 
             fixed_rows={'headers': True}, style_table={'height': 150}, 
             style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
             style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
             style = {'height':'50%', 'width': '20%', 'margin':'0px auto'}),
 
     html.Div([ #tabel kiri
-        dash_table.DataTable(data=group_1_pc2_neg.to_dict('records'),id = 'tabel2-kiri', 
+        dash_table.DataTable(data=group_4_pc2_neg.to_dict('records'),id = 'tabel2-kiri', 
         fixed_rows={'headers': True}, style_table={'height': 150}, 
         style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
         style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
@@ -268,14 +268,14 @@ tab2 =  html.Div([
     clickData = {'points':[{'text':'Sea'}]})],style = {'width':'50%', 'float':'left', 'display':'inline-block','margin-left':'100px', 'margin-top':'25px'}), 
     
     html.Div([ #tabel kanan
-            dash_table.DataTable(data=group_j_pc1_pos.to_dict('records'),id = 'tabel2-kanan', 
+            dash_table.DataTable(data=group_4_pc1_pos.to_dict('records'),id = 'tabel2-kanan', 
             fixed_rows={'headers': True}, style_table={'height': 150}, 
             style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
             style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
             style = {'height':'50%', 'width':'20%', 'float':'right', 'display':'inline-block', 'margin-top':'150px'}),
 
     html.Div([ #tabel bawah
-            dash_table.DataTable(data=group_j_pc2_neg.to_dict('records'),id = 'tabel2-bawah', 
+            dash_table.DataTable(data=group_4_pc2_neg.to_dict('records'),id = 'tabel2-bawah', 
             fixed_rows={'headers': True}, style_table={'height': 150}, 
             style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
             style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
