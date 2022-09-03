@@ -249,8 +249,8 @@ tab2 =  html.Div([
 app.layout = html.Div(style = {'background-color':'white'},children = [
 html.Div([    
     html.H3(['DASHBOARD PETA PERSEPTUAL'], style ={'font-family':'Helvetica', 'text-align':'left','height':'50%', 'text-align':'center'}), # Main page
-]), style= {'display':'inline-block', 'width':'100%'}),
-html.Div(id ='tab-pertama', children = tab1, style= {'padding':'0 0 0 0'})
+]),
+html.Div(id ='tab-pertama', children = tab2, style= {'padding':'0 0 0 0'})
 ])
 
 if __name__ == '__main__':
