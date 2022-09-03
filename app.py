@@ -214,7 +214,7 @@ app.config.suppress_callback_exceptions = True
 tab2 =  html.Div([  
     html.Div([ #tabel atas
             dash_table.DataTable(data=group_4_pc2_pos.to_dict('records'),id = 'tabel2-atas', 
-            fixed_rows={'headers': True}, style_table={'height': 150}, 
+            fixed_rows={'headers': True}, style_table={'height': 100}, 
             style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
             style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
             style = {'height':'50%', 'width': '20%', 'margin':'0px auto'}),
@@ -224,7 +224,7 @@ tab2 =  html.Div([
         fixed_rows={'headers': True}, style_table={'height': 150}, 
         style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
         style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
-        style = {'height':'50%', 'width':'20%', 'display':'inline-block', 'float':'left', 'margin-top':'150px'}),
+        style = {'height':'50%', 'width':'20%', 'display':'inline-block', 'float':'left', 'margin-top':'140px'}),
 
     html.Div([dcc.Graph(id ='second-page-graph',figure = fig2, 
     clickData = {'points':[{'text':'Sea'}]})],style = {'width':'50%', 'float':'left', 'display':'inline-block','margin-left':'100px', 'margin-top':'8px','height':'75%'}), 
@@ -234,7 +234,7 @@ tab2 =  html.Div([
             fixed_rows={'headers': True}, style_table={'height': 150}, 
             style_cell={'textAlign': 'center','font-family':'Helvetica','font-size':'75%'}, 
             style_header = {'background-color':'#cfcfcf', 'font-weight':'bold'})], 
-            style = {'height':'50%', 'width':'20%', 'float':'right', 'display':'inline-block', 'margin-top':'150px'}),
+            style = {'height':'50%', 'width':'20%', 'float':'right', 'display':'inline-block', 'margin-top':'140px'}),
 
     html.Div([ #tabel bawah
             dash_table.DataTable(data=group_4_pc2_neg.to_dict('records'),id = 'tabel2-bawah', 
