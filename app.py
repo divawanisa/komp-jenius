@@ -227,7 +227,7 @@ tab2 =  html.Div([
         style = {'height':'50%', 'width':'20%', 'display':'inline-block', 'float':'left', 'margin-top':'150px'}),
 
     html.Div([dcc.Graph(id ='second-page-graph',figure = fig2, 
-    clickData = {'points':[{'text':'Sea'}]})],style = {'width':'50%', 'float':'left', 'display':'inline-block','margin-left':'100px', 'margin-top':'25px'}), 
+    clickData = {'points':[{'text':'Sea'}]})],style = {'width':'50%', 'float':'left', 'display':'inline-block','margin-left':'100px', 'margin-top':'8px','height':'75%'}), 
     
     html.Div([ #tabel kanan
             dash_table.DataTable(data=group_4_pc1_pos.to_dict('records'),id = 'tabel2-kanan', 
@@ -248,7 +248,7 @@ tab2 =  html.Div([
 # LAYOUT
 app.layout = html.Div(style = {'background-color':'white'},children = [
 html.Div([    
-    html.H3(['DASHBOARD PETA PERSEPTUAL'], style ={'font-family':'Helvetica', 'text-align':'left','height':'50%', 'text-align':'center'}), # Main page
+    html.H3(['DASHBOARD PETA PERSEPTUAL'], style ={'font-family':'Helvetica', 'text-align':'left','height':'50%', 'text-align':'center', 'background-color':'#e4f3f5'}), # Main page
 ]),
 html.Div(id ='tab-pertama', children = tab2, style= {'padding':'0 0 0 0'})
 ])
